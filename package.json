@@ -1,0 +1,44 @@
+{
+  "name": "example-with-tailwindcss",
+  "type": "module",
+  "scripts": {
+    "dev": "vinxi dev",
+    "build": "vinxi build",
+    "start": "vinxi start",
+    "deploy": "bun run build && wrangler deploy",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint . --fix",
+    "format": "oxfmt .",
+    "format:check": "oxfmt . --check"
+  },
+  "dependencies": {
+    "@kobalte/core": "^0.13.11",
+    "@neondatabase/serverless": "^1.0.2",
+    "@orpc/client": "^1.13.4",
+    "@orpc/server": "^1.13.4",
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^0.15.0",
+    "@solidjs/start": "^1.1.0",
+    "@tanstack/solid-query": "^5.90.20",
+    "better-auth": "^1.4.13",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "drizzle-orm": "^0.45.1",
+    "lucide-solid": "^0.562.0",
+    "solid-js": "^1.9.5",
+    "tailwind-merge": "^3.4.0",
+    "tailwindcss-animate": "^1.0.7",
+    "vinxi": "^0.5.7",
+    "zod": "^4.3.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.7",
+    "oxfmt": "^0.24.0",
+    "oxlint": "^1.39.0",
+    "tailwindcss": "^4.0.7",
+    "wrangler": "^4.59.2"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
