@@ -57,6 +57,7 @@
 | `better-auth`              | 認証 (OAuth)               |
 | `drizzle-orm`              | ORM / DB操作               |
 | `@neondatabase/serverless` | Neon PostgreSQL ドライバー |
+| `paradedb/pg_search`       | Neon pg_search (検索)      |
 | `orpc`                     | 型安全 RPC                 |
 | `vitest`                   | テストフレームワーク       |
 | `@solidjs/testing-library` | コンポーネントテスト       |
@@ -64,12 +65,13 @@
 
 ## Infrastructure
 
-| Service  | Provider              | Purpose                     |
-| -------- | --------------------- | --------------------------- |
-| Hosting  | Cloudflare Workers    | エッジSSR / デプロイ (予定) |
-| Database | Neon PostgreSQL       | データ永続化 (予定)         |
-| Auth     | GitHub / Google OAuth | ソーシャルログイン (予定)   |
-| Storage  | (未定)                | 画像アップロード (予定)     |
+| Service  | Provider         | Purpose                        |
+| -------- | ---------------- | ------------------------------ |
+| Hosting  | Cloudflare Pages | エッジSSR / デプロイ           |
+| Database | Neon PostgreSQL  | データ永続化 (Hyperdrive経由)  |
+| Search   | Neon pg_search   | 全文検索                       |
+| Auth     | Better Auth      | 認証 (GitHub / Google / Email) |
+| Storage  | Cloudflare R2    | 画像アップロード               |
 
 **Repository:** (ローカル開発)
 

@@ -10,7 +10,8 @@
 
 ## Last Session Summary
 
-Codebase mapping complete on 2026-01-20.
+- **2026-01-20**: README and tech stack documentation updated based on `docs/tech-stack.md`.
+- **2026-01-20**: Codebase mapping complete.
 
 - **6** source files identified (src/)
 - **4** production dependencies analyzed
@@ -31,10 +32,12 @@ Codebase mapping complete on 2026-01-20.
 - **Package Manager:** Bun
 - **Runtime:** Node.js ≥22
 
-### Planned Architecture (from README/requirements)
-- **Hosting:** Cloudflare Workers
-- **Database:** Neon PostgreSQL
-- **Auth:** Better Auth (GitHub/Google OAuth)
+### Planned Architecture (Updated)
+- **Hosting:** Cloudflare Pages (updated from Workers)
+- **Database:** Neon PostgreSQL (with Hyperdrive)
+- **Search:** Neon pg_search (ParadeDB)
+- **Auth:** Better Auth (GitHub/Google/Email)
+- **Storage:** Cloudflare R2
 - **ORM:** Drizzle ORM (予定)
 - **RPC:** oRPC (予定)
 
