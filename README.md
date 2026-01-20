@@ -90,12 +90,14 @@ NowLedge is a freshness-first technical blogging and discovery platform. It help
 
 ## Architecture
 
-> This section describes the intended MVP reference architecture. Adjust to your repository’s actual stack as needed.
-
-- Web app: React + TypeScript (TanStack Start)
-- Runtime/hosting: Cloudflare Workers
-- Database: Postgres (Neon)
-- Auth: OAuth (GitHub/Google), optional Email
+- **Web Framework**: [SolidStart](https://start.solidjs.com/) (SSR Required)
+- **Runtime/Hosting**: [Cloudflare Pages](https://pages.cloudflare.com/) (MVP Recommendation)
+- **Database**: [Neon Postgres](https://neon.tech/)
+- **Connectivity**: [Hyperdrive](https://developers.cloudflare.com/hyperdrive/) + Neon serverless driver
+- **Search Engine**: [Neon pg_search](https://neon.tech/docs/extensions/pg_search) (ParadeDB)
+- **Authentication**: [BetterAuth](https://www.better-auth.com/)
+- **Storage**: [Cloudflare R2](https://developers.cloudflare.com/r2/)
+- **Ranking Engine**: SQL-based hybrid model (BM25 × Freshness × Penalty)
 
 ---
 
@@ -103,10 +105,10 @@ NowLedge is a freshness-first technical blogging and discovery platform. It help
 
 ### Prerequisites
 
-- Node.js (or Bun)
-- A Postgres database
-- OAuth apps for GitHub and Google (optional for local-only testing)
-- (If deploying) Cloudflare account + Wrangler
+- [Bun](https://bun.sh/) (Recommended) or Node.js
+- [Neon](https://neon.tech/) Project (Postgres)
+- [Cloudflare](https://cloudflare.com/) Account (for Pages, R2, and Hyperdrive)
+- OAuth credentials (for BetterAuth providers)
 
 ### Installation
 
@@ -124,32 +126,29 @@ npm run dev
 
 ### Environment Variables
 
-Create a `.env.local` (or `.env`) file:
+Create a `.env` file (see `.env.example` if available):
 
 ```bash
 # App
-APP_BASE_URL="http://localhost:3000"
+BETTER_AUTH_URL="http://localhost:3000"
+BETTER_AUTH_SECRET="..."
 
 # Database
-DATABASE_URL="postgres://USER:PASSWORD@HOST:PORT/DB"
+DATABASE_URL="postgres://..." # Neon connection string
+# Hyperdrive URL (for production)
+HYPERDRIVE_URL="postgres://..."
 
-# OAuth (GitHub)
+# Storage (Cloudflare R2)
+R2_ACCESS_KEY_ID="..."
+R2_SECRET_ACCESS_KEY="..."
+R2_BUCKET_NAME="..."
+R2_ENDPOINT="..."
+
+# OAuth Providers
 GITHUB_CLIENT_ID="..."
 GITHUB_CLIENT_SECRET="..."
-
-# OAuth (Google)
 GOOGLE_CLIENT_ID="..."
 GOOGLE_CLIENT_SECRET="..."
-
-# Optional: Email auth (if implemented)
-EMAIL_SMTP_HOST="..."
-EMAIL_SMTP_USER="..."
-EMAIL_SMTP_PASS="..."
-
-# Optional: Storage (for images)
-STORAGE_BUCKET="..."
-STORAGE_ACCESS_KEY="..."
-STORAGE_SECRET_KEY="..."
 ```
 
 ---
@@ -320,15 +319,6 @@ Add your chosen license here (e.g., MIT, Apache-2.0) and include a `LICENSE` fil
 ## Acknowledgements
 
 * README structure inspired by the “Awesome README” collection. ([GitHub][1])
-
-```
-
-If you want, I can also generate:
-- a matching `CONTRIBUTING.md` (issue/PR templates, code style, release steps),
-- an initial `.env.example`,
-- and a `docs/` skeleton (architecture, ranking spec, moderation policy) consistent with this README.
-::contentReference[oaicite:1]{index=1}
-```
 
 [1]: https://github.com/matiassingers/awesome-readme "GitHub - matiassingers/awesome-readme: A curated list of awesome READMEs"
 ```
