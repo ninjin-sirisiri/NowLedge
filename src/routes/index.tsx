@@ -15,7 +15,7 @@ export default function Home() {
 
 				<div class="auth-section">
 					<Show
-						when={session()?.user}
+						when={session()?.data?.user}
 						fallback={
 							<button
 								type="button"
@@ -28,7 +28,7 @@ export default function Home() {
 					>
 						{(user) => (
 							<div class="user-info">
-								<span>こんにちは、{user().name}さん</span>
+								<span>こんにちは、{user.name}さん</span>
 								<A href="/posts/new" class="new-post-button">
 									新規投稿
 								</A>
