@@ -49,6 +49,7 @@ Optional. Indicates the area of the codebase affected by the change:
 - `deps`: Dependency updates
 
 Examples:
+
 ```
 feat(tabs): add vertical tab layout
 fix(command-palette): resolve keyboard navigation bug
@@ -58,6 +59,7 @@ refactor(ui): simplify header component structure
 ### Subject
 
 The subject line should:
+
 - Use the imperative, present tense: "change" not "changed" nor "changes"
 - Not capitalize the first letter
 - Not end with a period (.)
@@ -65,12 +67,14 @@ The subject line should:
 - Clearly describe what the commit does
 
 ✅ Good examples:
+
 ```
 feat: add keyboard shortcut for new tab
 fix: resolve memory leak in tab closure
 ```
 
 ❌ Bad examples:
+
 ```
 feat: Added keyboard shortcut for new tab.  // Wrong tense, capitalized, has period
 Fix: Memory leak fixed  // Capitalized type, unclear
@@ -86,11 +90,13 @@ Fix: Memory leak fixed  // Capitalized type, unclear
 - Unrelated changes should be in separate commits
 
 ✅ Good commit scope:
+
 - Implementing a single feature (e.g., "feat: add tab close button")
 - Fixing a specific bug (e.g., "fix: resolve crash on window resize")
 - Refactoring a single component or module
 
 ❌ Avoid:
+
 - Mixing multiple unrelated features in one commit
 - Combining bug fixes with new features
 - Very large commits that touch many unrelated files
@@ -104,6 +110,7 @@ The body is **required** for:
 3. **Complex changes**: When the subject line alone is insufficient
 
 The body should:
+
 - Be separated from the subject by a blank line
 - Wrap lines at 72 characters
 - Explain the motivation for the change
@@ -111,6 +118,7 @@ The body should:
 - **Include related issue numbers** (see Footer section)
 
 Example:
+
 ```
 feat(adblock): implement EasyList filter support
 
@@ -137,6 +145,7 @@ Fixes #789
 ```
 
 Multiple issues:
+
 ```
 Refs #123, #124
 Fixes #125
@@ -172,6 +181,7 @@ This is automatically added by the development environment when using the `/comm
 ## Examples
 
 ### Simple feature addition
+
 ```
 feat(tabs): add vertical tab layout
 
@@ -179,6 +189,7 @@ Refs #23
 ```
 
 ### Bug fix with explanation
+
 ```
 fix(sidebar): prevent sidebar from hiding on hover
 
@@ -190,6 +201,7 @@ Fixes #145
 ```
 
 ### Breaking change with migration guide
+
 ```
 feat(config): migrate to JSON5 configuration format
 
@@ -204,6 +216,7 @@ Closes #78
 ```
 
 ### Refactoring
+
 ```
 refactor(ui): extract common button styles
 
@@ -216,6 +229,7 @@ Refs #92
 ## Anti-Patterns to Avoid
 
 ❌ **Vague messages**
+
 ```
 fix: bug fix
 feat: update code
@@ -223,17 +237,20 @@ chore: changes
 ```
 
 ❌ **Missing type**
+
 ```
 add new feature
 fix the problem
 ```
 
 ❌ **Too verbose subject**
+
 ```
 feat: implement a new feature that allows users to create vertical tabs in the sidebar
 ```
 
 ❌ **Mixing concerns**
+
 ```
 feat: add dark mode and fix tab memory leak
 
@@ -241,6 +258,7 @@ feat: add dark mode and fix tab memory leak
 ```
 
 ❌ **Missing issue reference for related work**
+
 ```
 feat(tabs): implement tab grouping
 
@@ -250,6 +268,7 @@ feat(tabs): implement tab grouping
 ## Quick Reference
 
 **Template:**
+
 ```
 <type>(<scope>): <subject>
 
@@ -259,6 +278,7 @@ feat(tabs): implement tab grouping
 ```
 
 **Common patterns:**
+
 - New feature: `feat(scope): add feature name`
 - Bug fix: `fix(scope): resolve specific issue`
 - Documentation: `docs: update readme with new info`
@@ -266,6 +286,7 @@ feat(tabs): implement tab grouping
 - Breaking change: Include `BREAKING CHANGE:` in footer
 
 **Remember:**
+
 - Write in English
 - Use imperative mood ("add", not "added")
 - Keep subject under 50 characters

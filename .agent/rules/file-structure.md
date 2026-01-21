@@ -148,6 +148,7 @@ features/機能名/
 - テストファイルは**対応するファイルと同じフォルダ**に配置する
 - 命名規則: `[ファイル名].test.tsx` または `[ファイル名].test.ts`
 - 例:
+
   ```
   components/
   ├── Button.tsx
@@ -313,6 +314,7 @@ docs/
 ### 例1: 新しいタブ機能の追加
 
 1. **フロントエンド**: `src/features/tabs/`を作成
+
    ```
    src/features/tabs/
    ├── components/
@@ -326,6 +328,7 @@ docs/
    ```
 
 2. **型定義**: `src/types/tabs.d.ts`を作成
+
    ```typescript
    export interface Tab {
      id: string;
@@ -335,6 +338,7 @@ docs/
    ```
 
 3. **バックエンド**: `src-tauri/src/modules/tabs/`を作成
+
    ```
    src-tauri/src/modules/tabs/
    ├── mod.rs

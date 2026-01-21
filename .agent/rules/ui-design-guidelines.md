@@ -5,17 +5,20 @@ Muのミニマリスト哲学に基づくUIデザインガイドライン。全�
 ## デザイン哲学
 
 **ミニマリズム・ファースト**
+
 - 視覚的ノイズの徹底的な排除
 - 情報密度を高めつつ、可読性を維持
 - 装飾的要素を最小限に抑え、機能性を優先
 - 「必要最小限」を常に問い続ける
 
 **キーボード中心の設計**
+
 - 全ての機能はキーボードで完結可能に
 - マウス操作はオプション、キーボードが標準
 - ショートカットキーを積極的に提供
 
 **コンテンツへの集中**
+
 - UIは黒子に徹する
 - ユーザーの注意をコンテンツに向けさせる
 - インターフェースが「消える」体験を目指す
@@ -25,6 +28,7 @@ Muのミニマリスト哲学に基づくUIデザインガイドライン。全�
 ### 基本方針
 
 **Tailwind CSS デフォルト値の活用**
+
 - カスタムデザイントークンは原則として定義しない
 - Tailwind CSS 4の標準値を使用し、一貫性を保つ
 - 必要最小限のカスタマイズに留める
@@ -35,12 +39,13 @@ Muのミニマリスト哲学に基づくUIデザインガイドライン。全�
 
 ```typescript
 // テーマの実装例
-className="bg-white dark:bg-gray-900"
-className="text-gray-900 dark:text-gray-100"
-className="border-gray-200 dark:border-gray-800"
+className = 'bg-white dark:bg-gray-900';
+className = 'text-gray-900 dark:text-gray-100';
+className = 'border-gray-200 dark:border-gray-800';
 ```
 
 **カラーパレット（Tailwind標準を使用）**
+
 - **プライマリ**: `gray-*`系を基調とする
 - **アクセント**: 最小限の使用（リンク、フォーカス状態など）
 - **セマンティックカラー**:
@@ -50,12 +55,14 @@ className="border-gray-200 dark:border-gray-800"
   - Info: `blue-500`
 
 **コントラスト基準**
+
 - WCAG 2.1 AA基準以上（4.5:1）を必須とする
 - 小さいテキスト（18pt未満）: 4.5:1以上
 - 大きいテキスト（18pt以上）: 3:1以上
 - UIコンポーネント: 3:1以上
 
 **テーマ切り替え**
+
 - システム設定に追従（`prefers-color-scheme`）
 - ユーザーが手動で切り替え可能
 - 選択したテーマをローカルストレージに保存
@@ -63,15 +70,24 @@ className="border-gray-200 dark:border-gray-800"
 ### タイポグラフィ
 
 **フォントファミリー**
+
 - **システムフォント + Webフォント併用**
 - プライマリ: Webフォント（Inter、Geist、または類似のモダンサンセリフ）
 - フォールバック: システムフォントスタック
   ```css
-  font-family: 'InterVariable', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-               'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    'InterVariable',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
   ```
 
 **タイポグラフィスケール（Tailwind標準）**
+
 - `text-xs` (0.75rem / 12px): 補助的な情報、ラベル
 - `text-sm` (0.875rem / 14px): 標準的なUI要素、ボディテキスト
 - `text-base` (1rem / 16px): 主要なコンテンツ
@@ -80,6 +96,7 @@ className="border-gray-200 dark:border-gray-800"
 - `text-2xl` (1.5rem / 24px): ページタイトル
 
 **基本スタイル**
+
 - 行間: `leading-relaxed` (1.625) をデフォルトとする
 - フォントウェイト:
   - Regular (400): 標準テキスト
@@ -88,6 +105,7 @@ className="border-gray-200 dark:border-gray-800"
   - Bold (700): 最重要見出しのみ
 
 **可読性の確保**
+
 - 最小フォントサイズ: 12px (`text-xs`)
 - 理想的な行長: 50-75文字（約600-800px）
 - テキストとの余白を十分に確保
@@ -95,6 +113,7 @@ className="border-gray-200 dark:border-gray-800"
 ### スペーシング
 
 **Tailwindスケール準拠（4px基本単位）**
+
 - `space-1`: 4px - 密接した要素間
 - `space-2`: 8px - 関連する要素間
 - `space-3`: 12px - 小さなグループの区切り
@@ -105,22 +124,26 @@ className="border-gray-200 dark:border-gray-800"
 - `space-16`: 64px - ページレベルの区切り
 
 **パディングの基本方針**
+
 - コンテナ内パディング: `p-4` または `p-6`
 - ボタン内パディング: `px-4 py-2`
 - カード内パディング: `p-6`
 
 **マージンの使用**
+
 - 基本的に親要素の `gap` または `space-y-*` を優先
 - マージンは特定の理由がある場合のみ使用
 
 ### UI密度
 
 **高密度・コンパクトレイアウト**
+
 - 情報を効率的に表示
 - スクロール量を最小限に抑える
 - ホワイトスペースは意図的に使用し、無駄な余白は排除
 
 **コンポーネントサイズ**
+
 - ボタン: `h-9` (36px) - コンパクトながらクリック可能
 - 入力フィールド: `h-9` (36px)
 - アイコン: `w-5 h-5` (20px) または `w-4 h-4` (16px)
@@ -131,16 +154,19 @@ className="border-gray-200 dark:border-gray-800"
 ### 基本原則
 
 **単一サイズの原則**
+
 - 各コンポーネントは基本的に1つのサイズのみ
 - サイズバリエーション（sm/md/lg）は原則として作らない
 - 本当に必要な場合のみ、最小限のバリエーションを追加
 
 **コンポーネントの再利用性**
+
 - 小さく、単一責任のコンポーネントを作成
 - Props経由でカスタマイズ可能に
 - 合成可能な設計（Composition over Configuration）
 
 **例: Buttonコンポーネント**
+
 ```typescript
 // ❌ 複数サイズを避ける
 <Button size="sm">Small</Button>
@@ -156,62 +182,69 @@ className="border-gray-200 dark:border-gray-800"
 ### 視覚的階層
 
 **フラットデザイン原則**
+
 - シャドウは最小限（フォーカス状態、ドロップダウンなど必要な場合のみ）
 - ボーダーで境界を明確化: `border border-gray-200 dark:border-gray-800`
 - 背景色の微妙な違いで階層を表現
 
 **推奨するシャドウ（必要最小限）**
+
 ```typescript
 // モーダル、ドロップダウンなど、浮いている要素のみ
-className="shadow-lg" // 大きな浮遊要素
-className="shadow-md" // 中程度の浮遊要素
-className="shadow-sm" // 微妙な浮き上がり
+className = 'shadow-lg'; // 大きな浮遊要素
+className = 'shadow-md'; // 中程度の浮遊要素
+className = 'shadow-sm'; // 微妙な浮き上がり
 
 // ホバー時の控えめなフィードバック
-className="hover:shadow-sm transition-shadow"
+className = 'hover:shadow-sm transition-shadow';
 ```
 
 **ボーダーの使用**
+
 ```typescript
 // 標準的な境界線
-className="border border-gray-200 dark:border-gray-800"
+className = 'border border-gray-200 dark:border-gray-800';
 
 // 強調したい境界
-className="border-2 border-gray-300 dark:border-gray-700"
+className = 'border-2 border-gray-300 dark:border-gray-700';
 
 // 微妙な区切り
-className="border-t border-gray-100 dark:border-gray-900"
+className = 'border-t border-gray-100 dark:border-gray-900';
 ```
 
 ### アニメーションとトランジション
 
 **最小限の使用原則**
+
 - UX上必要な場合のみアニメーションを追加
 - パフォーマンスを最優先
 - ユーザーの操作を妨げない
 
 **許可されるアニメーション**
+
 ```typescript
 // ホバーフィードバック（推奨）
-className="transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+className = 'transition-colors hover:bg-gray-100 dark:hover:bg-gray-800';
 
 // フォーカスリング（必須）
-className="focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+className = 'focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2';
 
 // トーストやモーダルの表示/非表示
-className="transition-opacity duration-200 ease-in-out"
+className = 'transition-opacity duration-200 ease-in-out';
 
 // ドロップダウンの展開/折りたたみ
-className="transition-transform duration-150 ease-out"
+className = 'transition-transform duration-150 ease-out';
 ```
 
 **禁止事項**
+
 - 不必要なローディングスピナー
 - 装飾的なアニメーション（キラキラエフェクトなど）
 - 長時間（300ms超）のアニメーション
 - 複雑なキーフレームアニメーション
 
 **アニメーション設定の推奨値**
+
 - Duration: `150ms` - `200ms`（標準）
 - Easing: `ease-in-out` または `ease-out`
 - `prefers-reduced-motion` への対応を忘れずに
@@ -219,11 +252,13 @@ className="transition-transform duration-150 ease-out"
 ### アイコンシステム
 
 **アイコンライブラリの使用**
+
 - **推奨ライブラリ**: [Lucide React](https://lucide.dev/) または [Heroicons](https://heroicons.com/)
 - 統一されたスタイルとサイズを保つ
 - Tree-shakingが効くライブラリを選択
 
 **アイコンの使用方針**
+
 ```typescript
 import { Search, X, Menu } from 'lucide-react'
 
@@ -238,11 +273,13 @@ import { Search, X, Menu } from 'lucide-react'
 ```
 
 **アイコンの配置**
+
 - テキストとアイコンの間隔: `gap-2` (8px)
 - ボタン内のアイコン: 左揃えが基本
 - アイコンのみのボタン: `p-2` で正方形に
 
 **避けるべきこと**
+
 - 異なるスタイルのアイコンの混在
 - 過度な装飾的アイコン
 - 意味のないアイコン（テキストで十分な場合）
@@ -252,11 +289,13 @@ import { Search, X, Menu } from 'lucide-react'
 ### キーボードナビゲーション（必須）
 
 **基本要件**
+
 - 全ての操作をキーボードで完結可能に
 - 論理的なタブオーダーを保つ
 - フォーカストラップを適切に実装（モーダルなど）
 
 **標準キーボードショートカット**
+
 - `Tab` / `Shift+Tab`: フォーカス移動
 - `Enter` / `Space`: アクション実行
 - `Escape`: モーダル/ドロップダウンを閉じる
@@ -264,18 +303,21 @@ import { Search, X, Menu } from 'lucide-react'
 - `Home` / `End`: リストの先頭/末尾へ移動
 
 **フォーカス表示（必須）**
+
 ```typescript
 // 標準的なフォーカスリング
-className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
+className =
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900';
 
 // ボタンのフォーカス
-className="focus-visible:ring-2 focus-visible:ring-blue-500"
+className = 'focus-visible:ring-2 focus-visible:ring-blue-500';
 
 // インプットフィールドのフォーカス
-className="focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+className = 'focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50';
 ```
 
 **インタラクティブ要素**
+
 - クリック可能な要素は `<button>` または適切なセマンティック要素を使用
 - `<div>` をボタンにしない（`role="button"` も避ける）
 - disabled状態は視覚的に明確に: `disabled:opacity-50 disabled:cursor-not-allowed`
@@ -283,11 +325,13 @@ className="focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opa
 ### ARIAラベル・ロール対応
 
 **基本原則**
+
 - セマンティックHTMLを最優先（ARIAは補完として使用）
 - 必要な場合のみARIA属性を追加
 - スクリーンリーダーでの動作を確認
 
 **必須のARIA属性**
+
 ```typescript
 // アイコンのみのボタン
 <button aria-label="閉じる">
@@ -311,6 +355,7 @@ className="focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opa
 ```
 
 **セマンティックHTML優先**
+
 ```typescript
 // ❌ 避ける
 <div role="button" onClick={handleClick}>クリック</div>
@@ -328,24 +373,27 @@ className="focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opa
 ### カラーコントラスト基準
 
 **WCAG 2.1 AA準拠（必須）**
+
 - 通常テキスト: 4.5:1以上
 - 大きなテキスト: 3:1以上
 - UIコンポーネント: 3:1以上
 
 **推奨カラーコンビネーション（Tailwind）**
+
 ```typescript
 // ライトモード
-"text-gray-900 bg-white"           // 21:1 ✅
-"text-gray-700 bg-gray-50"         // 10.7:1 ✅
-"text-gray-600 bg-white"           // 7:1 ✅
+'text-gray-900 bg-white'; // 21:1 ✅
+'text-gray-700 bg-gray-50'; // 10.7:1 ✅
+'text-gray-600 bg-white'; // 7:1 ✅
 
 // ダークモード
-"text-gray-100 bg-gray-900"        // 17.4:1 ✅
-"text-gray-300 bg-gray-900"        // 11.6:1 ✅
-"text-gray-400 bg-gray-900"        // 8.1:1 ✅
+'text-gray-100 bg-gray-900'; // 17.4:1 ✅
+'text-gray-300 bg-gray-900'; // 11.6:1 ✅
+'text-gray-400 bg-gray-900'; // 8.1:1 ✅
 ```
 
 **コントラストチェック**
+
 - 開発時にブラウザの検証ツールでコントラストを確認
 - WebAIMのContrast Checkerなどのツールを活用
 - グレースケールで表示して判別可能かテスト
@@ -355,6 +403,7 @@ className="focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opa
 ### レスポンシブデザイン
 
 **デスクトップ専用設計**
+
 - 最小幅: `1024px` (Tailwindの `lg` ブレークポイント)
 - それ以下の画面幅では「デスクトップでご利用ください」メッセージを表示
 - タブレット・モバイルは正式サポート外
@@ -375,30 +424,32 @@ className="min-w-[1024px]"
 ### グリッドとフレックスボックス
 
 **Flexboxを優先**
+
 - 1次元レイアウトには `flex` を使用
 - 要素間の間隔は `gap` で統一
 
 ```typescript
 // 横並び
-className="flex items-center gap-4"
+className = 'flex items-center gap-4';
 
 // 縦並び
-className="flex flex-col gap-6"
+className = 'flex flex-col gap-6';
 
 // 中央揃え
-className="flex items-center justify-center"
+className = 'flex items-center justify-center';
 ```
 
 **Grid Layoutの使用**
+
 - 2次元レイアウトが必要な場合のみ
 - タブグリッドやカードレイアウトなど
 
 ```typescript
 // 2カラムレイアウト
-className="grid grid-cols-2 gap-4"
+className = 'grid grid-cols-2 gap-4';
 
 // 自動フィット
-className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4"
+className = 'grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4';
 ```
 
 ## フィードバックとエラー表示
@@ -406,31 +457,35 @@ className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4"
 ### トースト通知
 
 **基本方針**
+
 - 非破壊的なフィードバックに使用
 - 画面右上または下に配置
 - 自動消去（3-5秒）+ 手動クローズボタン
 
 **実装ガイドライン**
+
 ```typescript
 // トーストライブラリの推奨: sonner, react-hot-toast
 
 // 成功メッセージ
-toast.success('保存しました')
+toast.success('保存しました');
 
 // エラーメッセージ
-toast.error('保存に失敗しました')
+toast.error('保存に失敗しました');
 
 // 情報メッセージ
-toast.info('更新があります')
+toast.info('更新があります');
 ```
 
 **トーストの種類**
+
 - **Success**: 操作の成功（保存、削除など）
 - **Error**: 操作の失敗、エラー
 - **Warning**: 注意喚起
 - **Info**: 情報提供
 
 **スタイリング**
+
 - ミニマルで控えめなデザイン
 - フラットまたは微妙なシャドウ
 - アイコン + テキスト（簡潔に）
@@ -438,6 +493,7 @@ toast.info('更新があります')
 ### エラー状態
 
 **インラインエラー（フォーム検証など）**
+
 ```typescript
 // 入力フィールドのエラー状態
 <input
@@ -454,10 +510,12 @@ toast.info('更新があります')
 ```
 
 **エラーページ**
+
 - 404、500などのエラーページはシンプルに
 - エラーコード + 簡潔な説明 + ホームへのリンク
 
 **ローディング状態**
+
 - 最小限のスピナー
 - 可能であればスケルトンスクリーンを使用
 - 長時間ロード（3秒以上）の場合は進捗表示
@@ -547,27 +605,32 @@ toast.info('更新があります')
 新しいUIコンポーネントを実装する前に、以下を確認すること：
 
 **デザイン原則**
+
 - [ ] ミニマリストの原則に沿っているか？
 - [ ] 本当に必要な要素のみか？装飾的でないか？
 - [ ] 高密度・コンパクトなレイアウトか？
 
 **技術実装**
+
 - [ ] Tailwindのデフォルト値を使用しているか？
 - [ ] 単一サイズで実装されているか？（不要なバリエーションがないか）
 - [ ] ライト・ダークモード両対応か？
 
 **アクセシビリティ**
+
 - [ ] キーボードで全ての操作が可能か？
 - [ ] フォーカス表示が明確か？
 - [ ] 適切なARIAラベル・ロールが設定されているか？
 - [ ] カラーコントラストがWCAG AA基準を満たしているか？
 
 **パフォーマンス**
+
 - [ ] 不要なアニメーションがないか？
 - [ ] アニメーションは200ms以内か？
 - [ ] `prefers-reduced-motion` に対応しているか？
 
 **一貫性**
+
 - [ ] 既存のコンポーネントとスタイルが統一されているか？
 - [ ] スペーシングはTailwindスケールに準拠しているか？
 - [ ] アイコンのサイズとスタイルが統一されているか？

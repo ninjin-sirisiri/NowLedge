@@ -7,9 +7,11 @@ wave: 1
 # Plan 1.1: Project Foundation & Tools
 
 ## Objective
+
 Establish the development foundation including tooling (Linting, Testing), Database schema (Drizzle), and Authentication (Better Auth) setup.
 
 ## Context
+
 - .gsd/REQUIREMENTS.md
 - .gsd/ARCHITECTURE.md
 - .gsd/STACK.md
@@ -66,6 +68,7 @@ Establish the development foundation including tooling (Linting, Testing), Datab
 </task>
 
 ## Success Criteria
+
 - [ ] Linting and testing pipelines are functional.
 - [ ] Database schema is defined and ready for migration.
 - [ ] Authentication layer is integrated with the database.

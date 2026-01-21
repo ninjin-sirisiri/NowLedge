@@ -7,9 +7,11 @@ wave: 2
 # Plan 1.2: Core Posting Implementation (MVP)
 
 ## Objective
+
 Implement basic Markdown post creation, listing, and visibility controls as defined in REQ-POST-01 and REQ-POST-02.
 
 ## Context
+
 - .gsd/REQUIREMENTS.md
 - src/lib/db/schema.ts
 - src/lib/auth.ts
@@ -48,6 +50,7 @@ Implement basic Markdown post creation, listing, and visibility controls as defi
 </task>
 
 ## Success Criteria
+
 - [ ] Users can create and preview Markdown posts.
 - [ ] Posts have visibility settings that are respected by the UI.
 - [ ] Homepage displays a list of the latest public posts.

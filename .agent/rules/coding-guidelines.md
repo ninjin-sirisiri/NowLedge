@@ -28,6 +28,7 @@ This document defines the coding standards and conventions for the Mu browser pr
 ### Import Organization
 
 Group and sort imports in the following order:
+
 1. React and external libraries (alphabetically sorted)
 2. Internal components (alphabetically sorted)
 3. Type definitions (alphabetically sorted)
@@ -36,20 +37,21 @@ Group and sort imports in the following order:
 Separate each group with a blank line.
 
 Example:
+
 ```typescript
 // External libraries
-import React, { useState, useEffect } from 'react'
-import { invoke } from '@tauri-apps/api/core'
+import React, { useState, useEffect } from 'react';
+import { invoke } from '@tauri-apps/api/core';
 
 // Components
-import CommandPalette from './CommandPalette'
-import TabBar from './TabBar'
+import CommandPalette from './CommandPalette';
+import TabBar from './TabBar';
 
 // Types
-import type { Tab, Command } from './types'
+import type { Tab, Command } from './types';
 
 // Utilities
-import { debounce } from './utils'
+import { debounce } from './utils';
 ```
 
 ### Documentation
@@ -89,6 +91,7 @@ import { debounce } from './utils'
 - Include error conditions in function documentation
 
 Example:
+
 ```rust
 /// Creates a new browser tab with the given URL.
 ///
@@ -138,6 +141,7 @@ pub fn create_tab(url: &str) -> Result<TabId, BrowserError> {
 ### Code Reviews
 
 When reviewing code, ask:
+
 - Does this align with Mu's minimalist philosophy?
 - Is the type safety maintained?
 - Are errors handled properly?

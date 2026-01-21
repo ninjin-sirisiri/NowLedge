@@ -45,7 +45,7 @@ NowLedge is a freshness-first technical blogging and discovery platform. It help
 
 ## Key Concepts
 
-- **Freshness-first**: Search ranks content by *relevance × freshness*, not by popularity alone.
+- **Freshness-first**: Search ranks content by _relevance × freshness_, not by popularity alone.
 - **Verification**: Authors can confirm a post still works (e.g., after re-testing).
 - **Outdated signals**: Readers can flag posts as outdated with a reason; this affects ranking and UI warnings.
 - **Evergreen content**: Some topics remain valid long-term (e.g., Git fundamentals). Evergreen reduces freshness decay, but never disables outdated warnings.
@@ -55,12 +55,14 @@ NowLedge is a freshness-first technical blogging and discovery platform. It help
 ## Features
 
 ### Content
+
 - Markdown posts with preview
 - Images upload (MVP)
 - Table of contents generation (from headings)
 - Version history (every edit is stored)
 
 ### Publishing
+
 - Drafts
 - Visibility controls:
   - **Public**: visible in listings/search
@@ -68,17 +70,20 @@ NowLedge is a freshness-first technical blogging and discovery platform. It help
   - **Private**: author-only
 
 ### Community
+
 - Threaded comments
 - Reactions: 👍 and emoji reactions
 - User follow
 - Review requests via unlisted links (plus optional reviewer targeting among followed users)
 
 ### Freshness System
+
 - Author **Verify** action (`verifiedAt`)
 - Reader **Outdated** action (category required, free-text optional)
 - Community Notes (proposal → adopted note)
 
 ### Search
+
 - Index: title/body (Markdown), tags, comments
 - Filters:
   - Time range (e.g., 7d/30d/1y/custom)
@@ -122,7 +127,7 @@ npm install
 bun dev
 # or
 npm run dev
-````
+```
 
 ### Environment Variables
 
@@ -160,9 +165,9 @@ GOOGLE_CLIENT_SECRET="..."
 1. Sign in
 2. Create a post (Markdown)
 3. Choose:
+   - Draft / Published
+   - Public / Unlisted / Private
 
-   * Draft / Published
-   * Public / Unlisted / Private
 4. Publish
 
 ### Verify a Post
@@ -173,12 +178,12 @@ Use **Verify** when you re-tested a post and confirmed it still works. This upda
 
 Readers can mark a post as **Outdated** by selecting a category (required):
 
-* API/spec changed
-* Steps inaccurate
-* Environment-dependent
-* Link rot
-* Security concern
-* Other
+- API/spec changed
+- Steps inaccurate
+- Environment-dependent
+- Link rot
+- Security concern
+- Other
 
 Optional: add a short note describing what broke and what to use instead.
 
@@ -186,19 +191,18 @@ Optional: add a short note describing what broke and what to use instead.
 
 Community Notes are designed to reduce noise without derailing the main post:
 
-* **Proposals**: eligible users can propose a note
-* **Adoption**: a note becomes “Community Note” by:
-
-  * author approval (primary path), or
-  * community “helpful” votes reaching the adoption threshold
+- **Proposals**: eligible users can propose a note
+- **Adoption**: a note becomes “Community Note” by:
+  - author approval (primary path), or
+  - community “helpful” votes reaching the adoption threshold
 
 ### Search
 
-Search results are ranked by relevance *and* freshness. Use filters to narrow down to:
+Search results are ranked by relevance _and_ freshness. Use filters to narrow down to:
 
-* recently updated/verified content
-* verified-only posts
-* non-outdated posts (exclude Strong Warning)
+- recently updated/verified content
+- verified-only posts
+- non-outdated posts (exclude Strong Warning)
 
 ---
 
@@ -218,13 +222,13 @@ FinalScore = RelevanceScore * FreshnessWeight * StalePenalty
 
 ### Freshness Weight (recommended MVP defaults)
 
-* For non-evergreen posts:
+- For non-evergreen posts:
 
 ```text
 FreshnessWeight = exp(-ageDays / 30)
 ```
 
-* For evergreen posts:
+- For evergreen posts:
 
 ```text
 FreshnessWeight = exp(-ageDays / 120)
@@ -232,8 +236,8 @@ FreshnessWeight = exp(-ageDays / 120)
 
 ### Outdated Penalty
 
-* Each outdated vote is **trust-weighted**
-* Votes older than the current `freshnessBaseAt` are **down-weighted** (e.g., 0.5×), so re-verification can recover ranking without erasing history
+- Each outdated vote is **trust-weighted**
+- Votes older than the current `freshnessBaseAt` are **down-weighted** (e.g., 0.5×), so re-verification can recover ranking without erasing history
 
 ```text
 StalePenalty = 1 / (1 + 0.5 * weightedStale)
@@ -241,19 +245,18 @@ StalePenalty = 1 / (1 + 0.5 * weightedStale)
 
 ### Warning Thresholds (recommended MVP defaults)
 
-* **Warning**
+- **Warning**
+  - `uniqueVoters >= 2` AND `weightedStale >= 1.5`
 
-  * `uniqueVoters >= 2` AND `weightedStale >= 1.5`
-* **Strong Warning**
-
-  * `uniqueVoters >= 3` AND `weightedStale >= 3.0`
-  * Included in “Exclude outdated” filter
+- **Strong Warning**
+  - `uniqueVoters >= 3` AND `weightedStale >= 3.0`
+  - Included in “Exclude outdated” filter
 
 ### Trust Weights (simple MVP)
 
-* account age < 7 days: 0.25
-* 7–30 days: 0.5
-* 30+ days: 1.0
+- account age < 7 days: 0.25
+- 7–30 days: 0.5
+- 30+ days: 1.0
 
 ---
 
@@ -261,34 +264,33 @@ StalePenalty = 1 / (1 + 0.5 * weightedStale)
 
 Recommended MVP protections:
 
-* Rate limits for:
+- Rate limits for:
+  - posting, commenting, reacting
+  - outdated votes
+  - note proposals
 
-  * posting, commenting, reacting
-  * outdated votes
-  * note proposals
-* Outdated vote requirements:
+- Outdated vote requirements:
+  - category required
+  - one vote per user per post
 
-  * category required
-  * one vote per user per post
-* Notes controls:
+- Notes controls:
+  - proposal eligibility gate (e.g., 7 days old account OR 1 public post)
+  - per-day proposal caps
+  - limit external links for new accounts
 
-  * proposal eligibility gate (e.g., 7 days old account OR 1 public post)
-  * per-day proposal caps
-  * limit external links for new accounts
-* Reporting:
-
-  * report post/comment/note for admin review
+- Reporting:
+  - report post/comment/note for admin review
 
 ---
 
 ## Roadmap
 
-* Notifications (in-app, then email)
-* Tag follow
-* Advanced diff UI for post versions
-* Better trust model (signals from accepted suggestions, sustained contributions)
-* Organization/team spaces
-* Monetization options (out of MVP scope)
+- Notifications (in-app, then email)
+- Tag follow
+- Advanced diff UI for post versions
+- Better trust model (signals from accepted suggestions, sustained contributions)
+- Organization/team spaces
+- Monetization options (out of MVP scope)
 
 ---
 
@@ -303,10 +305,10 @@ Contributions are welcome.
 
 Suggested areas:
 
-* Search relevance tuning
-* Ranking parameterization and evaluation
-* Anti-spam and trust signals
-* Community Notes UX
+- Search relevance tuning
+- Ranking parameterization and evaluation
+- Anti-spam and trust signals
+- Community Notes UX
 
 ---
 
@@ -318,7 +320,10 @@ Add your chosen license here (e.g., MIT, Apache-2.0) and include a `LICENSE` fil
 
 ## Acknowledgements
 
-* README structure inspired by the “Awesome README” collection. ([GitHub][1])
+- README structure inspired by the “Awesome README” collection. ([GitHub][1])
 
-[1]: https://github.com/matiassingers/awesome-readme "GitHub - matiassingers/awesome-readme: A curated list of awesome READMEs"
+[1]: https://github.com/matiassingers/awesome-readme 'GitHub - matiassingers/awesome-readme: A curated list of awesome READMEs'
+
+```
+
 ```

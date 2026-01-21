@@ -17,12 +17,14 @@
 ## Completed in Phase 1
 
 ### Plan 1.1: Project Foundation & Tools (Wave 1)
+
 - ✅ `oxlint` linting configured
 - ✅ `bun test` runner configured
 - ✅ Drizzle ORM schema (user, session, account, verification, post)
 - ✅ Better Auth integration with Drizzle adapter
 
 ### Plan 1.2: Core Posting Implementation (Wave 2)
+
 - ✅ `solid-markdown` editor with preview
 - ✅ Post creation page (`/posts/new`)
 - ✅ Post detail page (`/posts/[id]`)
@@ -53,4 +55,4 @@
 
 ---
 
-*Last updated: 2026-01-21*
+_Last updated: 2026-01-21_

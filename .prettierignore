@@ -1,0 +1,16 @@
+# Ignore artifacts:
+dist
+.output
+.vinxi
+coverage
+
+# Ignore dependencies:
+node_modules
+.pnp
+.pnp.js
+
+# Ignore other files
+.git
+.env
+.DS_Store
+*.log

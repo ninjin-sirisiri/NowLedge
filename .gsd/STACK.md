@@ -13,6 +13,7 @@
 ## Core Technologies
 
 ### Framework
+
 | Feature   | System                | Purpose                           |
 | --------- | --------------------- | --------------------------------- |
 | Fullstack | SolidStart v1.1       | SSR + ファイルベースルーティング  |
@@ -22,6 +23,7 @@
 | Styling   | Tailwind CSS v4       | ユーティリティファーストCSS       |
 
 ### Directory Structure
+
 | Directory     | Files | Purpose                      |
 | ------------- | ----- | ---------------------------- |
 | `src/`        | 6     | アプリケーションソースコード |
@@ -106,4 +108,4 @@
 
 ---
 
-*Last updated: 2026-01-20*
+_Last updated: 2026-01-20_

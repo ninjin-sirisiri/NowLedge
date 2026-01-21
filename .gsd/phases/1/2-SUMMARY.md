@@ -10,6 +10,7 @@ status: complete
 ## Completed Tasks
 
 ### Task 1: Markdown Editor & Post Creation
+
 - **Status**: ✅ Complete
 - **Files Created**:
   - `src/components/Editor.tsx` — Markdown editor with live preview toggle
@@ -22,6 +23,7 @@ status: complete
 - **Verification**: Lint passes with 0 errors
 
 ### Task 2: Post Listing & Visibility Controls
+
 - **Status**: ✅ Complete
 - **Files Created/Modified**:
   - `src/routes/posts/[id].tsx` — Post detail page with Markdown rendering
@@ -32,13 +34,16 @@ status: complete
   - Updated home page with post list, login/logout, and new post button
 
 ## Commits
+
 - `69be482` — feat(phase-1): markdown editor and post creation
 
 ## Success Criteria Verification
+
 - [x] Users can create and preview Markdown posts (Editor component with preview toggle)
 - [x] Posts have visibility settings that are respected by the UI (public/unlisted/private)
 - [x] Homepage displays a list of the latest public posts (getPublicPosts function)
 
 ## Notes
+
 - Browser verification pending (requires dev server start)
 - Database migration required before full functionality

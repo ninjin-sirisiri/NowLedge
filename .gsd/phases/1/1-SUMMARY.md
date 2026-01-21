@@ -10,6 +10,7 @@ status: complete
 ## Completed Tasks
 
 ### Task 1: Setup Tooling (Linting & Testing)
+
 - **Status**: ✅ Complete
 - **Files Modified**: `package.json`, `.gsd/phases/1/1-PLAN.md`
 - **Actions**:
@@ -19,6 +20,7 @@ status: complete
 - **Verification**: `bun run lint` → 0 warnings, 0 errors
 
 ### Task 2: Database & Schema Implementation
+
 - **Status**: ✅ Complete
 - **Files Created**:
   - `src/lib/db/schema.ts` — Drizzle schema with Better Auth tables + posts
@@ -30,6 +32,7 @@ status: complete
 - **Verification**: `npx drizzle-kit check` → "Everything's fine 🐶🔥"
 
 ### Task 3: Authentication Setup (Better Auth)
+
 - **Status**: ✅ Complete
 - **Files Created**:
   - `src/lib/auth.ts` — Better Auth server configuration with Drizzle adapter
@@ -41,9 +44,11 @@ status: complete
   - Set up email/password authentication
 
 ## Commits
+
 - `f45472b` — feat(phase-1): setup tooling (linting & testing)
 
 ## Success Criteria Verification
+
 - [x] Linting and testing pipelines are functional (`bun run lint` works)
 - [x] Database schema is defined and ready for migration (`drizzle-kit check` passes)
 - [x] Authentication layer is integrated with the database (Better Auth + Drizzle adapter)

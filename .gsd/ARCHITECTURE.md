@@ -40,6 +40,7 @@
 ## Components
 
 ### SolidStart Application
+
 - **Purpose:** フルスタックWebアプリケーションフレームワーク。SSR、ファイルベースルーティング、サーバーファンクションを提供
 - **Location:** `src/`
 - **Files:** 6 files
@@ -54,6 +55,7 @@
 | `global.d.ts`      | グローバル型定義                               | Low      |
 
 ### Routes
+
 - **Purpose:** ページコンポーネント、ファイルベースルーティング
 - **Location:** `src/routes/`
 - **Files:** 1 file
@@ -64,6 +66,7 @@
 | `index.tsx` | ホームページ（現在はプレースホルダー） | High     |
 
 ### Configuration
+
 - **Purpose:** ビルド設定、TypeScript設定
 - **Location:** `/` (root)
 
@@ -104,11 +107,13 @@
 ## Conventions
 
 **Naming:**
+
 - ファイル名: kebab-case（routes）、PascalCase（components）
 - エクスポート: default export for page components
 - パスエイリアス: `~/` → `./src/`
 
 **Structure:**
+
 - `src/routes/` - ページコンポーネント（ファイルベースルーティング）
 - `src/components/` - 再利用可能なUIコンポーネント（予定）
 - `src/lib/` - ユーティリティ、ヘルパー関数（予定）
@@ -116,8 +121,9 @@
 - `.gsd/` - GSD ワークフロー管理
 
 **Testing:**
+
 - (予定) Vitest + Solid Testing Library
 
 ---
 
-*Last updated: 2026-01-20*
+_Last updated: 2026-01-20_

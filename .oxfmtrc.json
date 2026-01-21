@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "experimentalSortImports": {
+    "newlinesBetween": true,
+    "internalPattern": ["~/", "@/"],
+    "groups": [
+      ["builtin", "external"],
+      ["model-components", "internal", "parent", "sibling", "index"],
+      "type",
+      "model-utils",
+      "unknown"
+    ],
+    "customGroups": [
+      {
+        "groupName": "model-components",
+        "elementNamePattern": ["~/components", "./components", "../components"]
+      },
+      {
+        "groupName": "model-utils",
+        "elementNamePattern": ["~/lib", "~/utils", "./lib", "./utils", "../lib", "../utils"]
+      }
+    ]
+  }
+}

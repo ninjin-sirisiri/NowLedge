@@ -125,7 +125,7 @@ async function callTauriCommand() {
 async function safeInvoke<T>(
   command: string,
   args?: Record<string, unknown>,
-  errorMessage?: string
+  errorMessage?: string,
 ): Promise<T> {
   try {
     return await invoke<T>(command, args);
@@ -137,11 +137,7 @@ async function safeInvoke<T>(
 }
 
 // 使用例
-const result = await safeInvoke<string>(
-  'greet',
-  { name: 'User' },
-  '挨拶の取得に失敗しました'
-);
+const result = await safeInvoke<string>('greet', { name: 'User' }, '挨拶の取得に失敗しました');
 ```
 
 ### 4. トースト通知の実装
@@ -158,11 +154,7 @@ interface ToastOptions {
   duration?: number; // ミリ秒
 }
 
-export function showToast(
-  message: string,
-  type: ToastType = 'error',
-  duration: number = 3000
-) {
+export function showToast(message: string, type: ToastType = 'error', duration: number = 3000) {
   // トースト表示ロジックをここに実装
   // 既存のライブラリを使用する場合:
   // - react-hot-toast
@@ -186,14 +178,20 @@ showToast('設定を保存しました', 'success');
 ```typescript
 // errors.ts
 export class NetworkError extends Error {
-  constructor(message: string, public statusCode?: number) {
+  constructor(
+    message: string,
+    public statusCode?: number,
+  ) {
     super(message);
     this.name = 'NetworkError';
   }
 }
 
 export class ValidationError extends Error {
-  constructor(message: string, public field?: string) {
+  constructor(
+    message: string,
+    public field?: string,
+  ) {
     super(message);
     this.name = 'ValidationError';
   }
@@ -210,10 +208,7 @@ async function fetchData() {
   try {
     const response = await fetch('/api/data');
     if (!response.ok) {
-      throw new NetworkError(
-        'サーバーエラー',
-        response.status
-      );
+      throw new NetworkError('サーバーエラー', response.status);
     }
   } catch (error) {
     if (error instanceof NetworkError) {
@@ -390,6 +385,7 @@ fn perform_step_2(param: &str) -> MuResult<String> {
 ### 1. エラーメッセージの書き方
 
 **ユーザー向けメッセージ (トースト)**:
+
 - ✅ 「ファイルの保存に失敗しました」
 - ✅ 「ネットワーク接続を確認してください」
 - ✅ 「入力内容を確認してください」
@@ -397,6 +393,7 @@ fn perform_step_2(param: &str) -> MuResult<String> {
 - ❌ 「Failed to invoke command: greet」
 
 **開発者向けメッセージ (コンソール)**:
+
 - ✅ 詳細なスタックトレース
 - ✅ エラーコード、ファイルパス、行番号
 - ✅ エラーが発生した関数名とパラメータ
@@ -404,10 +401,7 @@ fn perform_step_2(param: &str) -> MuResult<String> {
 ### 2. エラー回復の試み
 
 ```typescript
-async function fetchWithRetry(
-  url: string,
-  maxRetries: number = 3
-): Promise<Response> {
+async function fetchWithRetry(url: string, maxRetries: number = 3): Promise<Response> {
   let lastError: Error;
 
   for (let i = 0; i < maxRetries; i++) {
@@ -418,9 +412,7 @@ async function fetchWithRetry(
       console.warn(`Retry ${i + 1}/${maxRetries} failed:`, error);
 
       if (i < maxRetries - 1) {
-        await new Promise(resolve =>
-          setTimeout(resolve, 1000 * Math.pow(2, i))
-        );
+        await new Promise((resolve) => setTimeout(resolve, 1000 * Math.pow(2, i)));
       }
     }
   }

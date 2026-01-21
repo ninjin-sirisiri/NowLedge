@@ -1,6 +1,7 @@
 # REQUIREMENTS.md
 
 ## Format
+
 | ID          | Requirement                               | Source      | Status  |
 | ----------- | ----------------------------------------- | ----------- | ------- |
 | REQ-AUTH-01 | GitHub/Google OAuth Login                 | SPEC Goal 2 | Pending |

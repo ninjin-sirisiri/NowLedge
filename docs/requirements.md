@@ -1,8 +1,8 @@
 # 要件定義書（PRD）: 鮮度優先の技術ブログプラットフォーム（仮称）
 
-* 作成日: 2026-01-20（JST）
-* 対象: MVP（初期リリース）
-* 目的: Qiita / Zennのような技術ブログ基盤に、**鮮度（今も動く）**と**ノイズ低減**を中心概念として組み込む
+- 作成日: 2026-01-20（JST）
+- 対象: MVP（初期リリース）
+- 目的: Qiita / Zennのような技術ブログ基盤に、**鮮度（今も動く）**と**ノイズ低減**を中心概念として組み込む
 
 ---
 
@@ -14,10 +14,10 @@
 
 ### 1.2 解決したい課題
 
-* 最新で動く情報が見つけにくい
-* ノイズ（古い/誤り/環境依存）が検索・閲覧体験を劣化させる
-* 著者が更新・検証しても埋もれる
-* コミュニティの知見（訂正・補足）が記事に残らない
+- 最新で動く情報が見つけにくい
+- ノイズ（古い/誤り/環境依存）が検索・閲覧体験を劣化させる
+- 著者が更新・検証しても埋もれる
+- コミュニティの知見（訂正・補足）が記事に残らない
 
 ---
 
@@ -41,24 +41,24 @@
 
 ### 3.1 ゴール（MVP）
 
-* 投稿（Markdown）・編集・公開範囲制御（公開/限定公開/非公開）・履歴保存
-* 認証（GitHub/Google、Emailは拡張可能）
-* コメント（スレッド）
-* 検索（本文/タグ/コメント）＋フィルタ（期間/言語タグ/検証済みのみ/古い除外）
-* 鮮度基盤（updated/verified/古い判定/Notes）とランキング反映
-* いいね＋絵文字リアクション
-* フォロー（ユーザー）
-* レビュー依頼（限定公開リンク＋フォロー先への依頼）＋提案の承認
-* 表示速度、SEO、スパム耐性の最低ライン確保
+- 投稿（Markdown）・編集・公開範囲制御（公開/限定公開/非公開）・履歴保存
+- 認証（GitHub/Google、Emailは拡張可能）
+- コメント（スレッド）
+- 検索（本文/タグ/コメント）＋フィルタ（期間/言語タグ/検証済みのみ/古い除外）
+- 鮮度基盤（updated/verified/古い判定/Notes）とランキング反映
+- いいね＋絵文字リアクション
+- フォロー（ユーザー）
+- レビュー依頼（限定公開リンク＋フォロー先への依頼）＋提案の承認
+- 表示速度、SEO、スパム耐性の最低ライン確保
 
 ### 3.2 非ゴール（MVPでは実装しない）
 
-* 収益化（有料記事、サブスク、広告 等）
-* プッシュ通知 / メール通知（代替としてアプリ内一覧を用意）
-* 組織機能（チーム/企業、SSO）
-* タグフォロー（ユーザーフォローのみ）
-* 高度な差分UI（履歴は保存するが、リッチ差分表示は後回し）
-* パーソナライズ推薦（トレンド/関連は将来）
+- 収益化（有料記事、サブスク、広告 等）
+- プッシュ通知 / メール通知（代替としてアプリ内一覧を用意）
+- 組織機能（チーム/企業、SSO）
+- タグフォロー（ユーザーフォローのみ）
+- 高度な差分UI（履歴は保存するが、リッチ差分表示は後回し）
+- パーソナライズ推薦（トレンド/関連は将来）
 
 ---
 
@@ -66,27 +66,27 @@
 
 ### 4.1 対象ユーザー
 
-* エンジニア全般（学習～実務）
+- エンジニア全般（学習～実務）
 
 ### 4.2 主要ユースケース（優先度順の意図）
 
-* ナレッジ共有
-* 技術調査まとめ
-* チュートリアル
-* 障害対応ログ
-* 日報的メモ
-* ポートフォリオ
+- ナレッジ共有
+- 技術調査まとめ
+- チュートリアル
+- 障害対応ログ
+- 日報的メモ
+- ポートフォリオ
 
 ---
 
 ## 5. 用語定義
 
-* **freshnessBaseAt**: 記事の鮮度基準日時
+- **freshnessBaseAt**: 記事の鮮度基準日時
   `freshnessBaseAt = max(updatedAt, verifiedAt)`
-* **verifiedAt**: 著者が「現時点で動作確認した」等として検証した日時
-* **stale vote（古い判定）**: 読者が「情報が古い/不正確」を示す投票（カテゴリ必須、詳細任意）
-* **Community Notes（Notes）**: 記事への補足・訂正・代替手順の提案/採用表示
-* **evergreen**: 著者が「長期的に有効」を意図して付与するラベル（ただし古い判定を無効化しない）
+- **verifiedAt**: 著者が「現時点で動作確認した」等として検証した日時
+- **stale vote（古い判定）**: 読者が「情報が古い/不正確」を示す投票（カテゴリ必須、詳細任意）
+- **Community Notes（Notes）**: 記事への補足・訂正・代替手順の提案/採用表示
+- **evergreen**: 著者が「長期的に有効」を意図して付与するラベル（ただし古い判定を無効化しない）
 
 ---
 
@@ -110,20 +110,19 @@
 
 **FR-AUTH-01**: OAuthログイン（GitHub/Google）
 
-* 受入基準:
-
-  * GitHub/Googleでログインできる
-  * 初回ログイン時にユーザーが作成される（表示名・アイコン取得）
-  * ログアウトできる
+- 受入基準:
+  - GitHub/Googleでログインできる
+  - 初回ログイン時にユーザーが作成される（表示名・アイコン取得）
+  - ログアウトできる
 
 **FR-AUTH-02（拡張）**: Emailログイン（可能なら）
 
-* MVPでは「実装候補」。設計上は provider 拡張可能にする。
+- MVPでは「実装候補」。設計上は provider 拡張可能にする。
 
 **FR-USER-01**: プロフィール
 
-* handle（ユニーク）、表示名、アイコン、自己紹介
-* 自分の投稿一覧、検証一覧、レビュー依頼一覧が見える
+- handle（ユニーク）、表示名、アイコン、自己紹介
+- 自分の投稿一覧、検証一覧、レビュー依頼一覧が見える
 
 ---
 
@@ -131,43 +130,39 @@
 
 **FR-POST-01**: Markdown投稿
 
-* Markdown本文、タイトル、タグ（任意）、言語タグ（任意）
-* プレビュー表示対応
-* 目次自動生成（見出しから）
+- Markdown本文、タイトル、タグ（任意）、言語タグ（任意）
+- プレビュー表示対応
+- 目次自動生成（見出しから）
 
 **FR-POST-02**: 公開範囲
 
-* 状態（status）: draft / published
-* 可視性（visibility）: public / unlisted / private
-* 受入基準:
-
-  * public: 誰でも閲覧可能
-  * unlisted: URLを知っている人のみ閲覧可能（検索・一覧に出さない）
-  * private: 本人のみ閲覧可能（URLでも不可）
+- 状態（status）: draft / published
+- 可視性（visibility）: public / unlisted / private
+- 受入基準:
+  - public: 誰でも閲覧可能
+  - unlisted: URLを知っている人のみ閲覧可能（検索・一覧に出さない）
+  - private: 本人のみ閲覧可能（URLでも不可）
 
 **FR-POST-03**: 編集・更新
 
-* 編集で updatedAt が更新される
-* 受入基準:
-
-  * 公開中の記事を編集できる
-  * 更新内容が即時反映される
+- 編集で updatedAt が更新される
+- 受入基準:
+  - 公開中の記事を編集できる
+  - 更新内容が即時反映される
 
 **FR-POST-04**: 編集履歴（バージョン保存）
 
-* post_versions に本文とタイトルを保存（versionNo）
-* 受入基準:
-
-  * 記事編集のたびにバージョンが追加される
-  * 過去バージョンを閲覧できる（差分UIは不要、内容表示で可）
+- post_versions に本文とタイトルを保存（versionNo）
+- 受入基準:
+  - 記事編集のたびにバージョンが追加される
+  - 過去バージョンを閲覧できる（差分UIは不要、内容表示で可）
 
 **FR-POST-05**: 画像アップロード
 
-* Markdown内で画像を挿入できる
-* 受入基準:
-
-  * 画像をアップロードし、記事に表示できる
-  * 基本的な容量制限・形式制限（png/jpg/webp等）
+- Markdown内で画像を挿入できる
+- 受入基準:
+  - 画像をアップロードし、記事に表示できる
+  - 基本的な容量制限・形式制限（png/jpg/webp等）
 
 ---
 
@@ -175,12 +170,11 @@
 
 **FR-COMMENT-01**: スレッドコメント
 
-* parentId によるツリー
-* 受入基準:
-
-  * 記事にコメントできる
-  * 返信（スレッド）ができる
-  * 自分のコメント編集（任意・MVPは編集なしでも可）／削除（自分のみ）を定義
+- parentId によるツリー
+- 受入基準:
+  - 記事にコメントできる
+  - 返信（スレッド）ができる
+  - 自分のコメント編集（任意・MVPは編集なしでも可）／削除（自分のみ）を定義
 
 ---
 
@@ -188,11 +182,11 @@
 
 **FR-REACT-01**: いいね
 
-* 受入基準: 記事にいいねを付与・解除できる、合計数が表示される
+- 受入基準: 記事にいいねを付与・解除できる、合計数が表示される
 
 **FR-REACT-02**: 絵文字リアクション
 
-* 受入基準: 任意の絵文字でリアクションでき、集計表示される（スパム対策として種類/回数制限を設ける）
+- 受入基準: 任意の絵文字でリアクションでき、集計表示される（スパム対策として種類/回数制限を設ける）
 
 ---
 
@@ -200,10 +194,9 @@
 
 **FR-FOLLOW-01**: ユーザーフォロー
 
-* 受入基準:
-
-  * ユーザーをフォロー/解除できる
-  * 自分のフォロー一覧/フォロワー一覧が見える
+- 受入基準:
+  - ユーザーをフォロー/解除できる
+  - 自分のフォロー一覧/フォロワー一覧が見える
 
 ---
 
@@ -213,27 +206,26 @@
 
 **FR-SEARCH-01**: 検索対象は以下を含む
 
-* 記事タイトル/本文（Markdown）
-* タグ
-* コメント
+- 記事タイトル/本文（Markdown）
+- タグ
+- コメント
 
 #### 7.6.2 フィルタ（確定）
 
 **FR-SEARCH-02**: フィルタ
 
-* 期間（7日/30日/1年/指定）
-* 言語タグ（例: TypeScript, Go, Rust …）
-* 検証済みのみ（verifiedAt が存在）
-* 古い判定ありを除外（stale状態が閾値以上のものを除外）
+- 期間（7日/30日/1年/指定）
+- 言語タグ（例: TypeScript, Go, Rust …）
+- 検証済みのみ（verifiedAt が存在）
+- 古い判定ありを除外（stale状態が閾値以上のものを除外）
 
 #### 7.6.3 古い可能性表示（確定）
 
 **FR-SEARCH-03**: freshnessが閾値（例: 180日）超で「古い可能性」を表示
 
-* 受入基準:
-
-  * 検索結果カード上にバッジ表示
-  * evergreenは減衰を緩めるが、古い判定が付いた場合は警告を優先
+- 受入基準:
+  - 検索結果カード上にバッジ表示
+  - evergreenは減衰を緩めるが、古い判定が付いた場合は警告を優先
 
 ---
 
@@ -241,8 +233,8 @@
 
 ### 8.1 ランキング方針（確定）
 
-* 検索結果のデフォルトは **関連度 × 鮮度** の複合（新しいだけでなく関連度も重視）
-* 鮮度は `updatedAt` と `verifiedAt` と stale/Notes を反映
+- 検索結果のデフォルトは **関連度 × 鮮度** の複合（新しいだけでなく関連度も重視）
+- 鮮度は `updatedAt` と `verifiedAt` と stale/Notes を反映
 
 ### 8.2 スコア定義（推奨・MVP初期値）
 
@@ -254,34 +246,33 @@ FinalScore = RelevanceScore * FreshnessWeight * StalePenalty
 
 #### 8.2.1 RelevanceScore
 
-* 全文検索（DBのFTS、または検索エンジン）で得られる関連度スコア
-* MVPでは実装方式に依存（要件としては「関連度を提供する」こと）
+- 全文検索（DBのFTS、または検索エンジン）で得られる関連度スコア
+- MVPでは実装方式に依存（要件としては「関連度を提供する」こと）
 
 #### 8.2.2 FreshnessWeight（鮮度重み）
 
-* `ageDays = (now - freshnessBaseAt) in days`
-* 非evergreen:
+- `ageDays = (now - freshnessBaseAt) in days`
+- 非evergreen:
+  - `tau = 30`
+  - `FreshnessWeight = exp(-ageDays / 30)`
 
-  * `tau = 30`
-  * `FreshnessWeight = exp(-ageDays / 30)`
-* evergreen:
-
-  * `tau = 120`
-  * `FreshnessWeight = exp(-ageDays / 120)`
+- evergreen:
+  - `tau = 120`
+  - `FreshnessWeight = exp(-ageDays / 120)`
 
 > 目的: evergreen を“完全固定”せず、緩やかに劣化させる。
 
 #### 8.2.3 StalePenalty（古い判定ペナルティ）
 
-* `weightedStale = Σ(trustWeight(user)) * decayFactor`
-* `StalePenalty = 1 / (1 + k * weightedStale)`（推奨 `k=0.5`）
+- `weightedStale = Σ(trustWeight(user)) * decayFactor`
+- `StalePenalty = 1 / (1 + k * weightedStale)`（推奨 `k=0.5`）
 
 **decayFactor（検証/更新後の減衰）**
 
-* 記事の freshnessBaseAt より前の stale は影響を弱める
+- 記事の freshnessBaseAt より前の stale は影響を弱める
+  - `decayFactor = 0.5`（過去票は半減）
 
-  * `decayFactor = 0.5`（過去票は半減）
-* freshnessBaseAt 以降の stale は `decayFactor = 1.0`
+- freshnessBaseAt 以降の stale は `decayFactor = 1.0`
 
 ---
 
@@ -289,44 +280,43 @@ FinalScore = RelevanceScore * FreshnessWeight * StalePenalty
 
 ### 9.1 入力仕様（推奨確定）
 
-* **理由カテゴリ選択: 必須**
-* 詳細テキスト: 任意
-* 1ユーザー1記事につき1票（再投票不可）
+- **理由カテゴリ選択: 必須**
+- 詳細テキスト: 任意
+- 1ユーザー1記事につき1票（再投票不可）
 
 理由カテゴリ例:
 
-* API/仕様変更
-* 手順が不正確
-* 環境依存（OS/バージョン差）
-* リンク切れ/参照不能
-* セキュリティ懸念
-* その他
+- API/仕様変更
+- 手順が不正確
+- 環境依存（OS/バージョン差）
+- リンク切れ/参照不能
+- セキュリティ懸念
+- その他
 
 ### 9.2 Trust Weight（MVP簡易版）
 
-* アカウント作成〜7日未満: 0.25
-* 7〜30日: 0.5
-* 30日以上: 1.0
+- アカウント作成〜7日未満: 0.25
+- 7〜30日: 0.5
+- 30日以上: 1.0
   （将来拡張：投稿実績や受け入れ提案数で加点）
 
 ### 9.3 閾値（MVP初期値・推奨）
 
-* **軽い注意（Warning）**
+- **軽い注意（Warning）**
+  - `uniqueVoters >= 2` かつ `weightedStale >= 1.5`
+  - UI: 検索結果・記事上部に「注意」バッジ、理由カテゴリの要約表示
+  - ランキング: StalePenaltyが有意に効き始める
 
-  * `uniqueVoters >= 2` かつ `weightedStale >= 1.5`
-  * UI: 検索結果・記事上部に「注意」バッジ、理由カテゴリの要約表示
-  * ランキング: StalePenaltyが有意に効き始める
-* **強い注意（Strong Warning）**
-
-  * `uniqueVoters >= 3` かつ `weightedStale >= 3.0`
-  * UI: 強い警告＋理由の詳細（カテゴリ分布）＋Notes誘導
-  * 検索フィルタ「古い除外」の対象
+- **強い注意（Strong Warning）**
+  - `uniqueVoters >= 3` かつ `weightedStale >= 3.0`
+  - UI: 強い警告＋理由の詳細（カテゴリ分布）＋Notes誘導
+  - 検索フィルタ「古い除外」の対象
 
 ### 9.4 著者の対抗手段（要件）
 
-* **検証ボタン**で verifiedAt を更新できる
-* 記事の修正で updatedAt を更新できる
-* Notes（Community Notes）で補足・訂正・代替手順を提示できる
+- **検証ボタン**で verifiedAt を更新できる
+- 記事の修正で updatedAt を更新できる
+- Notes（Community Notes）で補足・訂正・代替手順を提示できる
 
 ---
 
@@ -334,34 +324,32 @@ FinalScore = RelevanceScore * FreshnessWeight * StalePenalty
 
 ### 10.1 二層モデル（推奨確定）
 
-* **Note Proposal（提案）**: 条件を満たすユーザーが作成可能
-* **Community Note（採用表示）**: 記事上で目立つ表示（採用条件あり）
+- **Note Proposal（提案）**: 条件を満たすユーザーが作成可能
+- **Community Note（採用表示）**: 記事上で目立つ表示（採用条件あり）
 
 ### 10.2 提案作成の権限（推奨）
 
-* ログイン必須
-* 以下のいずれか:
+- ログイン必須
+- 以下のいずれか:
+  - アカウント作成から7日以上
+  - 公開記事が1本以上
 
-  * アカウント作成から7日以上
-  * 公開記事が1本以上
-* 制限:
-
-  * 1日あたり提案上限（例: 3）
-  * 1記事あたり提案上限（例: 5）
-  * 新規アカウントの外部リンク数制限（例: 2）
+- 制限:
+  - 1日あたり提案上限（例: 3）
+  - 1記事あたり提案上限（例: 5）
+  - 新規アカウントの外部リンク数制限（例: 2）
 
 ### 10.3 採用（記事に目立って表示される条件）
 
-* 方式A（主ルート）: **著者が承認**
-* 方式B（保険）: コミュニティ投票で採用
-
-  * `helpfulUniqueVoters >= 3` かつ `helpfulWeighted >= 3.0`
+- 方式A（主ルート）: **著者が承認**
+- 方式B（保険）: コミュニティ投票で採用
+  - `helpfulUniqueVoters >= 3` かつ `helpfulWeighted >= 3.0`
 
 ### 10.4 表示ルール
 
-* 記事上部に固定表示する Community Note は最大 **1〜2件**
-* その他は「Notes一覧」に格納（ノイズ抑制）
-* Noteにはカテゴリ（訂正/補足/代替手順/注意事項）を付与
+- 記事上部に固定表示する Community Note は最大 **1〜2件**
+- その他は「Notes一覧」に格納（ノイズ抑制）
+- Noteにはカテゴリ（訂正/補足/代替手順/注意事項）を付与
 
 ---
 
@@ -369,14 +357,14 @@ FinalScore = RelevanceScore * FreshnessWeight * StalePenalty
 
 ### 11.1 レビュー依頼（確定）
 
-* **限定公開（unlisted）リンク**を使ってレビューを回す
-* 追加で、フォロー中ユーザーへ依頼対象として提示できる（通知は後回し）
+- **限定公開（unlisted）リンク**を使ってレビューを回す
+- 追加で、フォロー中ユーザーへ依頼対象として提示できる（通知は後回し）
 
 ### 11.2 レビュー提案と承認（確定）
 
-* レビュー提案は「提案」として管理される
-* 著者は提案を **承認（accepted）/却下（rejected）**できる
-* 承認された提案は、編集反映（手動でも可）と紐付けて履歴に残る
+- レビュー提案は「提案」として管理される
+- 著者は提案を **承認（accepted）/却下（rejected）**できる
+- 承認された提案は、編集反映（手動でも可）と紐付けて履歴に残る
 
 ---
 
@@ -384,10 +372,10 @@ FinalScore = RelevanceScore * FreshnessWeight * StalePenalty
 
 **FR-INBOX-01**: アプリ内「自分宛」一覧
 
-* 自分の記事への新コメント
-* 自分へのレビュー依頼
-* 自分のNotes提案の採否状態
-* 自分の記事への古い判定状況（Warning/Strong）
+- 自分の記事への新コメント
+- 自分へのレビュー依頼
+- 自分のNotes提案の採否状態
+- 自分の記事への古い判定状況（Warning/Strong）
 
 ※メール/プッシュ通知はMVP外。必ずアプリ内で把握できる導線を用意する。
 
@@ -399,27 +387,27 @@ FinalScore = RelevanceScore * FreshnessWeight * StalePenalty
 
 **NFR-SPAM-01**: レート制限
 
-* 新規ユーザーの投稿/コメント/リアクション/古い判定/Notesに回数制限
+- 新規ユーザーの投稿/コメント/リアクション/古い判定/Notesに回数制限
 
 **NFR-SPAM-02**: 新規ユーザー制限
 
-* アカウント作成直後は stale/Notes の影響（trustWeight）が低い
-* 外部リンク数上限（新規のみ）
+- アカウント作成直後は stale/Notes の影響（trustWeight）が低い
+- 外部リンク数上限（新規のみ）
 
 **NFR-SPAM-03**: 通報導線
 
-* 記事/コメント/Notesの通報を可能にする（運営対応は手動で可）
+- 記事/コメント/Notesの通報を可能にする（運営対応は手動で可）
 
 ### 13.2 evergreen乱用対策
 
-* evergreen は減衰緩和のみ（上位固定しない）
-* Strong Warning が付いた記事は evergreen でも警告優先
+- evergreen は減衰緩和のみ（上位固定しない）
+- Strong Warning が付いた記事は evergreen でも警告優先
 
 ### 13.3 最低限の運用ポリシー（MVP）
 
-* 禁止事項（スパム、著作権侵害、個人情報、悪意ある誘導 等）
-* 通報→対応フロー
-* 削除依頼の受付方針（DMCA相当/権利者対応）
+- 禁止事項（スパム、著作権侵害、個人情報、悪意ある誘導 等）
+- 通報→対応フロー
+- 削除依頼の受付方針（DMCA相当/権利者対応）
 
 ---
 
@@ -427,25 +415,25 @@ FinalScore = RelevanceScore * FreshnessWeight * StalePenalty
 
 ### 14.1 表示速度
 
-* 主要ページ（記事詳細・検索結果）は体感高速（LCP/TTFBを意識）
-* 画像は最適化（圧縮/サイズ制限/遅延読み込み）
+- 主要ページ（記事詳細・検索結果）は体感高速（LCP/TTFBを意識）
+- 画像は最適化（圧縮/サイズ制限/遅延読み込み）
 
 ### 14.2 SEO
 
-* public記事はインデックス可能
-* meta（title/description）、OGP、構造化（可能なら）
-* unlisted/privateは noindex 相当の扱い
+- public記事はインデックス可能
+- meta（title/description）、OGP、構造化（可能なら）
+- unlisted/privateは noindex 相当の扱い
 
 ### 14.3 可用性・保全
 
-* バックアップ方針（DBバックアップ、メディア保管）
-* 監査ログ（最低限：ログイン、投稿作成/更新、削除、権限変更）
+- バックアップ方針（DBバックアップ、メディア保管）
+- 監査ログ（最低限：ログイン、投稿作成/更新、削除、権限変更）
 
 ### 14.4 セキュリティ
 
-* CSRF/ XSS 対策（Markdownレンダリングのサニタイズ）
-* レート制限、Bot対策の導入余地
-* OAuthトークンの安全な保管
+- CSRF/ XSS 対策（Markdownレンダリングのサニタイズ）
+- レート制限、Bot対策の導入余地
+- OAuthトークンの安全な保管
 
 ---
 
@@ -453,16 +441,16 @@ FinalScore = RelevanceScore * FreshnessWeight * StalePenalty
 
 主要エンティティ:
 
-* users, follows
-* posts（status, visibility, evergreen, verifiedAt, publishedAt, updatedAt）
-* post_versions
-* tags, post_tags（タグ任意、言語タグは kind で区別）
-* comments（parentId）
-* reactions（like/emoji）
-* stale_votes（category必須、detail任意）
-* notes（proposal→採用、status）
-* note_votes（helpful/notHelpful）
-* review_requests, review_suggestions
+- users, follows
+- posts（status, visibility, evergreen, verifiedAt, publishedAt, updatedAt）
+- post_versions
+- tags, post_tags（タグ任意、言語タグは kind で区別）
+- comments（parentId）
+- reactions（like/emoji）
+- stale_votes（category必須、detail任意）
+- notes（proposal→採用、status）
+- note_votes（helpful/notHelpful）
+- review_requests, review_suggestions
 
 ---
 
@@ -479,13 +467,13 @@ FinalScore = RelevanceScore * FreshnessWeight * StalePenalty
 
 ## 17. 受け入れ基準（サンプル：MVPの必須品質）
 
-* 公開/限定公開/非公開が意図通りにアクセス制御される
-* 検索で「関連度×鮮度」が機能し、フィルタが効く
-* verifiedAt の更新で freshnessBaseAt が更新され、検索順位に反映される
-* stale vote が閾値に達すると Warning/Strong が発生し、UI表示とフィルタ対象が一致する
-* Notes 提案ができ、著者承認または helpful 投票で採用表示される
-* 編集履歴が欠損なく保存され、過去版が閲覧できる
-* レート制限等のスパム対策が最低限働く（過剰投稿を抑止）
+- 公開/限定公開/非公開が意図通りにアクセス制御される
+- 検索で「関連度×鮮度」が機能し、フィルタが効く
+- verifiedAt の更新で freshnessBaseAt が更新され、検索順位に反映される
+- stale vote が閾値に達すると Warning/Strong が発生し、UI表示とフィルタ対象が一致する
+- Notes 提案ができ、著者承認または helpful 投票で採用表示される
+- 編集履歴が欠損なく保存され、過去版が閲覧できる
+- レート制限等のスパム対策が最低限働く（過剰投稿を抑止）
 
 ---
 
@@ -493,47 +481,46 @@ FinalScore = RelevanceScore * FreshnessWeight * StalePenalty
 
 ### Phase 0（基盤）
 
-* 認証、投稿、公開範囲、記事表示、SEO、画像
+- 認証、投稿、公開範囲、記事表示、SEO、画像
 
 ### Phase 1（検索・鮮度）
 
-* 検索＋フィルタ
-* verified（検証）
-* stale vote（Warning/Strong、ペナルティ）
+- 検索＋フィルタ
+- verified（検証）
+- stale vote（Warning/Strong、ペナルティ）
 
 ### Phase 2（コミュニティ知見）
 
-* Notes（提案→採用）
-* フォロー、レビュー依頼、アプリ内一覧
+- Notes（提案→採用）
+- フォロー、レビュー依頼、アプリ内一覧
 
 ---
 
 ## 19. 主要リスクと対策
 
-* **荒らし（古い判定/Notesの悪用）**
+- **荒らし（古い判定/Notesの悪用）**
+  - trustWeight、カテゴリ必須、レート制限、採用条件、通報
 
-  * trustWeight、カテゴリ必須、レート制限、採用条件、通報
-* **evergreenの乱用**
+- **evergreenの乱用**
+  - 減衰緩和に留める、Strong Warning優先
 
-  * 減衰緩和に留める、Strong Warning優先
-* **検索品質不足**
+- **検索品質不足**
+  - フィルタ重視で体験を作る、将来検索エンジン移行を前提に設計分離
 
-  * フィルタ重視で体験を作る、将来検索エンジン移行を前提に設計分離
-* **運用負荷**
-
-  * MVPは自動化しすぎず、通報→手動対応を許容
+- **運用負荷**
+  - MVPは自動化しすぎず、通報→手動対応を許容
 
 ---
 
 ## 20. 付録：初期パラメータ（推奨）
 
-* 古い可能性表示: 180日
-* Freshness tau: 非evergreen 30日、evergreen 120日
-* Stale penalty: `k = 0.5`
-* stale閾値:
+- 古い可能性表示: 180日
+- Freshness tau: 非evergreen 30日、evergreen 120日
+- Stale penalty: `k = 0.5`
+- stale閾値:
+  - Warning: voters>=2 & weighted>=1.5
+  - Strong: voters>=3 & weighted>=3.0
 
-  * Warning: voters>=2 & weighted>=1.5
-  * Strong: voters>=3 & weighted>=3.0
-* trustWeight: <7日 0.25 / 7-30日 0.5 / 30日+ 1.0
-* Notes採用: 著者承認 or helpful voters>=3 & helpfulWeighted>=3.0
-* Notes提案権限: 7日以上 or 公開1本以上
+- trustWeight: <7日 0.25 / 7-30日 0.5 / 30日+ 1.0
+- Notes採用: 著者承認 or helpful voters>=3 & helpfulWeighted>=3.0
+- Notes提案権限: 7日以上 or 公開1本以上

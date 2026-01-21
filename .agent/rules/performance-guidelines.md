@@ -5,6 +5,7 @@
 Muは「軽量でミニマリスト」なブラウザを目指しており、パフォーマンスは最優先事項です。このドキュメントでは、フロントエンドとバックエンドの両方におけるパフォーマンスのベストプラクティスを定義します。
 
 **重視するパフォーマンス指標：**
+
 - **起動時間**: アプリケーションの起動からインタラクティブになるまでの時間
 - **メモリ使用量**: RAM フットプリントの最小化とメモリリークの防止
 - **レンダリング速度**: UI 更新、タブ切り替え、スクロールなどの応答性
@@ -15,6 +16,7 @@ Muは「軽量でミニマリスト」なブラウザを目指しており、パ
 ### 起動時間の最適化
 
 **遅延読み込み (Lazy Loading)**
+
 ```typescript
 // 推奨: 大きなコンポーネントは React.lazy で遅延読み込み
 const SettingsPanel = React.lazy(() => import('./components/SettingsPanel'));
@@ -29,6 +31,7 @@ function App() {
 ```
 
 **初期レンダリングの最小化**
+
 - 初期表示に不要なコンポーネントは遅延レンダリング
 - 条件付きレンダリングを活用して、非表示時はレンダリングしない
 - コマンドパレットなど、ユーザー操作後に表示される UI は遅延初期化
@@ -97,8 +100,8 @@ const handleMultipleUpdates = async () => {
 const routes = [
   {
     path: '/settings',
-    component: React.lazy(() => import('./pages/Settings'))
-  }
+    component: React.lazy(() => import('./pages/Settings')),
+  },
 ];
 
 // 機能ごとのコード分割
@@ -383,6 +386,7 @@ impl ThrottledEvent {
 ### 推奨ツール
 
 **フロントエンド**
+
 - **React DevTools Profiler**: コンポーネントのレンダリング時間とボトルネックを特定
   - Commit ごとの時間を記録
   - Flamegraph で重いコンポーネントを可視化
@@ -393,6 +397,7 @@ impl ThrottledEvent {
   - Memory タブでメモリリークを検出
 
 **バックエンド**
+
 - **Rust Profiling Tools**:
   - `cargo flamegraph` でボトルネックを可視化
   - `cargo build --release` でリリースビルドのパフォーマンス確認
@@ -420,6 +425,7 @@ bun run tauri build
 ### フロントエンド
 
 ❌ **インラインオブジェクト/関数の生成**
+
 ```typescript
 // 非推奨: 毎回新しいオブジェクトを生成
 <TabList tabs={tabs} config={{ showIcons: true }} />
@@ -430,6 +436,7 @@ const TAB_CONFIG = { showIcons: true };
 ```
 
 ❌ **useEffect 内での無限ループ**
+
 ```typescript
 // 非推奨: 依存配列が不適切で無限ループ
 useEffect(() => {
@@ -438,11 +445,12 @@ useEffect(() => {
 
 // 推奨: 依存配列を適切に設定
 useEffect(() => {
-  setData(prev => ({ ...prev, updated: Date.now() }));
+  setData((prev) => ({ ...prev, updated: Date.now() }));
 }, []); // 初回のみ実行
 ```
 
 ❌ **過度な Context 使用**
+
 ```typescript
 // 非推奨: 巨大な Context で全てを管理
 <AppContext.Provider value={{ tabs, bookmarks, history, settings, ... }}>
@@ -455,6 +463,7 @@ useEffect(() => {
 ### バックエンド
 
 ❌ **同期ブロッキング処理**
+
 ```rust
 // 非推奨: 同期的なネットワーク処理
 #[tauri::command]
@@ -472,6 +481,7 @@ async fn fetch_data() -> String {
 ```
 
 ❌ **過度なクローン**
+
 ```rust
 // 非推奨: 不要なクローン
 fn process_tab(tab: Tab) -> String {
@@ -487,6 +497,7 @@ fn process_tab(tab: &Tab) -> String {
 ```
 
 ❌ **メモリリーク**
+
 ```rust
 // 非推奨: イベントリスナーの解除忘れ
 fn setup_tab(tab: &Tab) {
@@ -505,6 +516,7 @@ fn setup_tab(tab: &Tab) -> CleanupHandle {
 ## まとめ
 
 Mu のパフォーマンス哲学：
+
 - **測定可能**: 変更前後でパフォーマンスを測定する
 - **最小限**: 不要なコードやライブラリを含めない
 - **プロアクティブ**: パフォーマンス問題を事後修正ではなく事前予防する
