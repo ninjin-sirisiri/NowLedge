@@ -13,6 +13,7 @@
 - **2026-01-21**: Phase 1 executed successfully.
   - Plan 1.1 (Foundation & Tools): Linting, Testing, DB Schema, Auth setup
   - Plan 1.2 (Core Posting): Markdown Editor, Post CRUD, Visibility controls
+  - **Bug Fix**: 固定: ログイン後のユーザー名が正常に表示されない問題を修正 (Showコンポーネントにkeyedを追加)
 
 ## Completed in Phase 1
 
@@ -21,7 +22,8 @@
 - ✅ `oxlint` linting configured
 - ✅ `bun test` runner configured
 - ✅ Drizzle ORM schema (user, session, account, verification, post)
-- ✅ Better Auth integration with Drizzle adapter
+- ✅ Better Auth integration with Drizzle adapter (Google & GitHub)
+- ✅ GitHub login button added to Home page UI
 
 ### Plan 1.2: Core Posting Implementation (Wave 2)
 
